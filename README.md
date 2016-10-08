@@ -1,2 +1,1 @@
-# fcc.data-visualization-certification
-free-code-camp projects
+# free-code-camp data-visualization projects
