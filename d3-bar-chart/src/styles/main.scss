@@ -1,0 +1,26 @@
+.wrapper {
+    padding:30px;
+    margin: 0 auto;
+    max-width:700px;
+    border: 1px solid #9c9c9c;
+    box-shadow : 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.chart {
+    padding:0;
+    margin: 0;
+
+    &__title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+}
+
+.c3 svg {
+    font-size: 11px;
+}
+.c3 path, .c3 line {
+    fill: none;
+    stroke: #ccc;
+}
