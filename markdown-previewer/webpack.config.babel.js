@@ -40,15 +40,12 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         }),
-        new HtmlWebpackPlugin({
-            title: 'Markdown-previewer'
-        }),
         ...DEBUG ? [
             new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: {baseDir: ['dist']}
-        })
+                host: 'localhost',
+                port: 3000,
+                server: {baseDir: ['dist']}
+            })
         ] : []
     ],
 
@@ -67,8 +64,11 @@ module.exports = {
                 )
             },
             {
-                test: /\.(ttf|eot|woff|svg)/,
+                test: /\.(ttf|eot|woff|svg|png|jpg)/,
                 loader: 'file-loader'
+            }, {
+                test: /(\.png|\.jpg)$/,
+                loader: 'url?limit=8000&name=../img/[name].[ext]'
             },
             {
                 test: /\.css$/,
