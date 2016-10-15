@@ -4,3 +4,8 @@
 Visualize Data with a Bar Chart
 
 [Challenge](https://www.freecodecamp.com/challenges/visualize-data-with-a-bar-chart).
+
+## [Markdown Previewer](https://headfire94.github.io/markdown-previewer/)
+React markdown previewer
+
+[Challenge](https://www.freecodecamp.com/challenges/build-a-markdown-previewer).
