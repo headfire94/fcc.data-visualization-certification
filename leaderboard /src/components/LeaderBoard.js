@@ -16,6 +16,9 @@ import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop
 
 export default class LeaderBoard extends Component {
     render() {
+        if (typeof this.props.tableData !== 'undefined' && this.props.tableData.length > 0) {
+            console.log('ee');
+        }
         return (
             <div className="board-wrapper">
                 <Table
@@ -44,19 +47,24 @@ export default class LeaderBoard extends Component {
                             </TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
-                    <TableBody
+
+                    {typeof this.props.tableData !== 'undefined' && this.props.tableData.length > 0
+                        ? <TableBody
                         displayRowCheckbox={false}
                         showRowHover={true}
-                        stripedRows={true}
-                    >
+                        stripedRows={true}>
                         {this.props.tableData.map((row, index) => (
                             <TableRow key={index + 1}>
                                 <TableRowColumn>{index + 1}</TableRowColumn>
                                 <TableRowColumn>
-                                    <Avatar src={row.img} style={{verticalAlign: 'middle', display: 'inlineBlock', marginRight:'10px'}}/>
+                                    <Avatar src={row.img} style={{
+                                        verticalAlign: 'middle',
+                                        display: 'inlineBlock',
+                                        marginRight: '10px'
+                                    }}/>
                                     <a href={'https://www.freecodecamp.com/' + row.username}
                                        target="_blank"
-                                       style={{verticalAlign: 'middle', display: 'inlineBlock', color : 'white'}}>
+                                       style={{verticalAlign: 'middle', display: 'inlineBlock', color: 'white'}}>
                                         {row.username}
                                     </a>
                                 </TableRowColumn>
@@ -65,6 +73,15 @@ export default class LeaderBoard extends Component {
                             </TableRow>
                         ))}
                     </TableBody>
+                        : <TableBody displayRowCheckbox={false}
+                                     showRowHover={true}
+                                     stripedRows={true}>
+                        <TableRow>
+                            <TableRowColumn>No results</TableRowColumn>
+                        </TableRow>
+                    </TableBody>
+                    }
+
                 </Table>
             </div>
         )

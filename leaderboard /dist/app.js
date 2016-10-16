@@ -30615,6 +30615,9 @@
 	        value: function render() {
 	            var _this2 = this;
 
+	            if (typeof this.props.tableData !== 'undefined' && this.props.tableData.length > 0) {
+	                console.log('ee');
+	            }
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'board-wrapper' },
@@ -30668,13 +30671,12 @@
 	                            )
 	                        )
 	                    ),
-	                    _react2.default.createElement(
+	                    typeof this.props.tableData !== 'undefined' && this.props.tableData.length > 0 ? _react2.default.createElement(
 	                        _Table.TableBody,
 	                        {
 	                            displayRowCheckbox: false,
 	                            showRowHover: true,
-	                            stripedRows: true
-	                        },
+	                            stripedRows: true },
 	                        this.props.tableData.map(function (row, index) {
 	                            return _react2.default.createElement(
 	                                _Table.TableRow,
@@ -30687,7 +30689,11 @@
 	                                _react2.default.createElement(
 	                                    _Table.TableRowColumn,
 	                                    null,
-	                                    _react2.default.createElement(_Avatar2.default, { src: row.img, style: { verticalAlign: 'middle', display: 'inlineBlock', marginRight: '10px' } }),
+	                                    _react2.default.createElement(_Avatar2.default, { src: row.img, style: {
+	                                            verticalAlign: 'middle',
+	                                            display: 'inlineBlock',
+	                                            marginRight: '10px'
+	                                        } }),
 	                                    _react2.default.createElement(
 	                                        'a',
 	                                        { href: 'https://www.freecodecamp.com/' + row.username,
@@ -30708,6 +30714,20 @@
 	                                )
 	                            );
 	                        })
+	                    ) : _react2.default.createElement(
+	                        _Table.TableBody,
+	                        { displayRowCheckbox: false,
+	                            showRowHover: true,
+	                            stripedRows: true },
+	                        _react2.default.createElement(
+	                            _Table.TableRow,
+	                            null,
+	                            _react2.default.createElement(
+	                                _Table.TableRowColumn,
+	                                null,
+	                                'No results'
+	                            )
+	                        )
 	                    )
 	                )
 	            );
